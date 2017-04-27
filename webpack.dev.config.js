@@ -16,30 +16,35 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  target: 'electron-renderer',
   module: {
-    rules: [
-      { test: /\.css$/,
-        use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' }
-        ],
-        include: defaultInclude },
-      { test: /\.js?$/,
-        use: [
-        { loader: 'babel-loader' }
-        ],
-        include: defaultInclude },
-      { test: /\.(jpe?g|png|gif)$/,
-        use: [
-        { loader: 'file-loader?name=img/[name]__[hash:base64:5].[ext]' }
-        ],
-        include: defaultInclude },
-      { test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [
-        { loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }
-        ],
-        include: defaultInclude }
-    ]
+    rules: [{
+      test: /\.css$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
+      }],
+      include: defaultInclude
+    },{
+      test: /\.js?$/,
+      use: [{
+        loader: 'babel-loader'
+      }],
+      include: defaultInclude
+    },{
+      test: /\.(jpe?g|png|gif)$/,
+      use: [{
+        loader: 'file-loader?name=img/[name]__[hash:base64:5].[ext]'
+      }],
+      include: defaultInclude
+    },{
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      use: [{
+        loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]'
+      }],
+      include: defaultInclude
+    }]
   },
   plugins: [
     new HtmlWebpackPlugin(),
