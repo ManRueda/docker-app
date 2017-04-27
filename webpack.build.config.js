@@ -27,6 +27,11 @@ module.exports = {
       }),
       include: defaultInclude
     },{
+      test: /\.js/,
+      use: [{
+        loader: 'shebang-loader'
+      }]
+    },{
       test: /\.js?$/,
       use: [{
         loader: 'babel-loader'
