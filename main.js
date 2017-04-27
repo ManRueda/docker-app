@@ -15,18 +15,18 @@ if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) |
   dev = true
 }
 
-if (dev) {
-  const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
-  installExtension(REACT_DEVELOPER_TOOLS)
-    .then((name) => console.log(`Added Extension:  ${name}`))
-    .catch((err) => console.log('An error occurred: ', err))
-}
-
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1024, height: 768, show: false
   })
+
+  if (dev) {
+    const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log('An error occurred: ', err))
+  }
 
   // and load the index.html of the app.
   let indexPath
