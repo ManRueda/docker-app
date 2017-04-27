@@ -1,10 +1,12 @@
 import React from 'react'
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import App from './App'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { ConnectedRouter as Router } from 'react-router-redux'
+import { history } from '../store'
+import App from '../containers/App'
 import About from './About'
 
 const Root = () => (
-  <Router>
+  <Router history={history}>
     <Switch>
       <Route exact path='/' component={App} />
       <Route path='/about' component={About} />
